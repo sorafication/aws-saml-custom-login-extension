@@ -1,0 +1,166 @@
+form {
+	max-width: unset !important ;
+}
+.mgr-title{
+    color: #4e81ae;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.mgr-image {
+	float: right;
+	width: 200px;
+}
+#saml_form{
+	margin: 0;
+}
+
+#saml-ul {
+  /* Remove default list styling */
+  list-style-type: none;
+  display: -ms-flexbox;           /* IE 10 */
+  display: -webkit-flex;          /* Safari 6.1+. iOS 7.1+ */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /*flex-flow: wrap column; */
+  /*max-height: 1800px;*/
+}
+
+#saml-ul li {
+/*  border: 1px solid #ddd;*/ /*/* Add a border to all links */
+  background-color: #f6f6f6; /* Grey background color */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: #4e81ae; /* Add a black text color */
+  /* display: flex;  Make it into a block element to fill the whole list */
+  /*transition: transform .2s;  Animation */
+  width: 400px;
+  height: 80px;
+  margin: 8px;
+  box-shadow: 0px 0px 0px 5px @border;
+  transition: box-shadow 0.2s linear;
+
+
+}
+#saml-ul li.active, #saml-ul li.active:hover {
+  background-color: #eee;
+  transform: scale(1.1);
+  /*border-color: black;
+  border-style: solid;*/
+  box-shadow: 0px 0px 0px 2px black;
+
+
+}
+
+#saml-ul li:hover {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+  transform: scale(1.1);
+}
+
+
+
+#saml-ul hr {
+	visibility: hidden;
+}
+
+.saml-account-name{
+	visibility: visible;
+}
+
+
+
+/* Search Bar with Buttons */
+#saml-input {
+  float: left;
+  width: 50%;
+  height: 30px;
+  background: $blue;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 0 0px rgba(#000,.1);
+  margin-left: 30px;
+}
+
+/* Search Bar */
+.search-container {
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+  width: 100%;
+  background: #fff;
+  height: 60px;
+}
+
+.filter-button {
+  background-color: #1c2947; /* Green background */
+  border: 1px solid #bbbec5f5; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+  margin-right: 5px;
+}
+
+.filter-button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+.filter-button:hover {
+  background-color: #8591aff5;
+  transform: scale(1.2);
+
+}
+.filter-button:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+ input[type="radio"],
+.input-label {
+    display: none ;
+}
+
+.readonly_li {
+	background-color: #cfe7f3 !important;
+}
+
+#signin_button {
+	width: 15%;
+    border-style: solid;
+    border-width: 0px 0px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    color: #FFFFFF;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+    font-style: normal;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all 200ms ease-in-out 0s;
+    white-space: nowrap;
+    font-family: "Gotham Rounded A","Gotham Rounded B",Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    padding: 19px 39px 18px;
+    font-size: 24px;
+    border-color: #326E99;
+    background: #3F8ABF !important;
+
+}
+
+.buttoninput {
+	text-align: center;
+	padding: unset !important;
+}
+
+#signin_button:hover, #signin_button:focus, #signin_button:active {
+    background: #397CAC !important;
+    border-color: #326E99;
+}
