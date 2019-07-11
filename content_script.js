@@ -17,7 +17,7 @@ while (i < elements.length){
     elements[i].className = "saml-account filter all cbc"
 
           if(elements[i].innerHTML.indexOf("readonly") !== -1){
-      $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all cbc readonly"> <hr></div>')
+      $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all cbc readonly">  </div>')
 
       }
     }
@@ -26,7 +26,7 @@ while (i < elements.length){
   	elements[i].className = "saml-account filter all mgr"
 
   	      if(elements[i].innerHTML.indexOf("readonly") !== -1){
-      $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all mgr readonly"> <hr></div>')
+      $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all mgr readonly">  </div>')
       }
     }
 
@@ -34,7 +34,7 @@ while (i < elements.length){
    	  	elements[i].className = "saml-account filter all rtli"
 
    	  	  if(elements[i].innerHTML.indexOf("readonly") !== -1){
-      $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all rtli readonly"> <hr></div>')
+      $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all rtli readonly">  </div>')
       }
    	}
 
@@ -44,14 +44,14 @@ while (i < elements.length){
    	  	 elements[i].className = "saml-account filter all tvnow"
 
    	  	if(elements[i].innerHTML.indexOf("readonly") !== -1){
-      $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all tvnow readonly"> <hr></div>')
+      $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all tvnow readonly">  </div>')
       }
    	  }
    	   else {
-   	  	elements[i].className = "saml-account filter all rin"
+   	  	elements[i].className = "saml-account filter all rtli"
 
    	  	if(elements[i].innerHTML.indexOf("readonly") !== -1){
-      $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all rin readonly"> <hr></div>')
+      $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all rtli readonly">  </div>')
       }
 
    	  }
@@ -61,7 +61,7 @@ while (i < elements.length){
   	elements[i].className = "saml-account filter all ip"
 
         if(elements[i].innerHTML.indexOf("readonly") !== -1){
-      $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all ip readonly"> <hr></div>')
+      $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all ip readonly">  </div>')
       }
 
   }
@@ -70,7 +70,7 @@ while (i < elements.length){
   	elements[i].className = "saml-account filter all ntv"
 
   	  if(elements[i].innerHTML.indexOf("readonly") !== -1){
-      $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all ntv readonly"> <hr></div>')
+      $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all ntv readonly">  </div>')
       }
 
   }
@@ -104,27 +104,52 @@ var elements2 = document.getElementsByClassName('saml-account-name'), len;
 var elements3 = document.getElementsByClassName('saml-role-description'), len;
 var j = 0, k= 0;
 while (j < elements3.length){
-	if (elements3[j].innerHTML.indexOf("readonly") !== -1){
-	var account_name = elements2[k-1].textContent;
-	account_name = account_name.split(' ').slice(1).join(' ');
-	account_name = toCamelCase(account_name);
-	elements3[j].textContent = account_name + " Read Only";
-    j++;
 
-	}
-	else {
-	var account_name = elements2[k].textContent;
-	account_name = account_name.split(' ').slice(1).join(' ');
-	account_name = toCamelCase(account_name);
-	elements3[j].textContent = account_name;
-	j++;
-	k++;
-	}
-}
+    if (elements3[j].innerHTML.indexOf("admin") !== -1 ) {
+        console.log(elements3[j].innerHTML)
+        //console.log(elements3[j+1].innerHTML)
+
+        if (elements3[j+1] !== undefined && elements3[j+1].innerHTML.indexOf("readonly") !== -1) {
+            var account_name_a = elements2[k].textContent;
+            account_name_a = account_name_a.split(' ').slice(1).join(' ');
+            account_name_a = toCamelCase(account_name_a);
+            elements3[j].textContent = account_name_a;
+            elements3[j+1].textContent = account_name_a + " ReadOnly";
+            j++;
+            j++;
+            k++;
+            continue;
+        }
+        else {
+            var account_name_ro = elements2[k].textContent;
+            account_name_ro = account_name_ro.split(' ').slice(1).join(' ');
+            account_name_ro = toCamelCase(account_name_ro);
+            elements3[j].textContent = account_name_ro;
+            j++;
+            k++;
+            continue;
+            }
+        }
+
+        else if (elements3[j].innerHTML.indexOf("readonly") !== -1) {
+            var account_name = elements2[k].textContent;
+            account_name = account_name.split(' ').slice(1).join(' ');
+            account_name = toCamelCase(account_name);
+            elements3[j].textContent = account_name +"ReadOnly";
+            j++;
+            k++;
+            continue;
+        }
+
+
+
+    }
 
 //add to readonly parent class an extra class for better changes with css
 $('.readonly').parent().addClass("readonly_li");
 
+//add <hr> to all Read Only ones
+$('.readonly').prepend("<hr>");
 
 // Remove Onclick div Element
 $('[onclick^="expandCollapse"]').remove();
