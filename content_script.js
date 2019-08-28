@@ -16,7 +16,11 @@ while (i < elements.length){
 
     elements[i].className = "saml-account filter all cbc"
 
-          if(elements[i].innerHTML.indexOf("readonly") !== -1){
+    if(elements[i].innerHTML.indexOf("billing") !== -1){
+        $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all cbc billing">  </div>')
+        }
+
+        else if(elements[i].innerHTML.indexOf("readonly") !== -1){
       $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all cbc readonly">  </div>')
 
       }
@@ -106,31 +110,44 @@ var all_accounts_elements = document.getElementsByClassName('saml-account filter
 var z = 0;
 while (z < all_accounts_elements.length) {
 
-    // Check if TextContent has Account Information or not. IF not then get Account name from last Element.
-   if ( all_accounts_elements[z].textContent.indexOf("Account:") == -1  ){
+    if (all_accounts_elements[z].textContent.indexOf("cbc-master") !== -1  ){
+       $(all_accounts_elements[z]).parent().addClass("billing_li")
+    }
+
+
+    if ( all_accounts_elements[z].textContent.indexOf("Account:") == -1  ){
     account_name_a =  $(all_accounts_elements[z-1]).find('.saml-account-name').text()
     account_name_a = account_name_a.split(' ').slice(1).join(' ');
     account_name_a = toCamelCase(account_name_a);
+   // console.log("Account Name A: " + account_name_a)
 
     // Replace the Field
+    if (all_accounts_elements[z].textContent.indexOf("billing") !== -1) {
+    $(all_accounts_elements[z]).find('.saml-role-description').text( account_name_a  + " Billing Access" )
+    z++;
+
+    }
+    else {
     $(all_accounts_elements[z]).find('.saml-role-description').text( account_name_a  + " ReadOnly" )
     z++;
     }
-
+}
 //REPLACE All Fields with Account Information
 account_name_b =  $(all_accounts_elements[z]).find('.saml-account-name').text()
 account_name_b = account_name_b.split(' ').slice(1).join(' ');
 account_name_b = toCamelCase(account_name_b);
+//console.log("Account Name B: " + account_name_b)
 $(all_accounts_elements[z]).find('.saml-role-description').text( account_name_b )
 z++;
 }
 
-
 //add to readonly parent class an extra class for better changes with css
 $('.readonly').parent().addClass("readonly_li");
+$('.billing').parent().addClass("billing_li");
 
 //add <hr> to all Read Only ones
 $('.readonly').prepend("<hr>");
+$('.billing').prepend("<hr>");
 
 // Remove Onclick div Element
 $('[onclick^="expandCollapse"]').remove();
