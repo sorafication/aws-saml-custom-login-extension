@@ -34,6 +34,14 @@ while (i < elements.length){
       }
     }
 
+    else if (elements[i].innerHTML.indexOf("dmhubaudio-") !== -1) {
+        elements[i].className = "saml-account filter all dmhubaudio"
+
+              if(elements[i].innerHTML.indexOf("readonly") !== -1){
+        $(elements[i].children[2].children[1]).wrap('<div class="saml-account filter all dmhubaudio readonly">  </div>')
+        }
+      }
+
   else if (elements[i].innerHTML.indexOf("rtli-") !== -1) {
    	  	elements[i].className = "saml-account filter all rtli"
 

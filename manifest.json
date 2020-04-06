@@ -1,7 +1,7 @@
 {
     "name": "AWS SAML Custom Page",
     "description": "Custom JS and CSS to make the AWS SSO Login Page usable. Currently only works for CBC",
-    "version": "0.9.3",
+    "version": "0.9.4",
     "manifest_version": 2,
     "options_ui": {
       "page": "options.html",
