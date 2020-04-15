@@ -11,7 +11,9 @@ form {
 
 .mgr-image {
 	float: right;
-	width: 200px;
+  width: 8%;
+  padding-right: 10px;
+  padding-top: 5px;
 }
 #saml_form{
 	margin: 0;

@@ -1,7 +1,7 @@
 {
     "name": "AWS SAML Custom Page",
     "description": "Custom JS and CSS to make the AWS SSO Login Page usable. Currently only works for CBC",
-    "version": "0.9.4",
+    "version": "0.9.6",
     "manifest_version": 2,
     "options_ui": {
       "page": "options.html",
@@ -17,11 +17,8 @@
         "32": "icon32.png"
       },
       "web_accessible_resources": [
-        "content_images/rtl_logo.svg"
+        "content_images/rtl.png"
     ],
-    "permissions": [
-        "activeTab"
-      ],
 
       "content_scripts": [{
         "css": ["aws_saml.css"],

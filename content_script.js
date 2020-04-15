@@ -163,9 +163,18 @@ $('.background').remove();
 
 
 //Create Header with Buttons, Searchbar, and Logo
-$('#container').before('<header id="header"> <div class="mgr-title"> Herzlich Willkommen beim Mediengruppen RTL Login für AWS Accounts  </div> <div class ="search-container"> <button class="filter-button" data-filter="all">Alle </button> 								<button class="filter-button" data-filter="cbc">CBC </button>										<button class="filter-button" data-filter="tvnow">TVNow </button> 									<button class="filter-button" data-filter="rtli">RTLInterartive </button> 					    <button class="filter-button" data-filter="ip">IP </button> <button class="filter-button" data-filter="ntv">NTV </button> <button class="filter-button" data-filter="mgr">MGR </button> <input type="text" id="saml-input" placeholder="Suche nach einer Rolle.." title="Type in a name"> <img class="mgr-image" src="chrome.runtime.getURL("images/rtl_logo.svg")" </image>  </header>');
+$('#container').before('<header id="header"> <div class="mgr-title"> Herzlich Willkommen beim Mediengruppen RTL Login für AWS Accounts  </div> <div class ="search-container"> <button class="filter-button" data-filter="all">Alle </button> 								<button class="filter-button" data-filter="cbc">CBC </button>										<button class="filter-button" data-filter="tvnow">TVNow </button> 									<button class="filter-button" data-filter="rtli">RTLInterartive </button> 					    <button class="filter-button" data-filter="ip">IP </button> <button class="filter-button" data-filter="ntv">NTV </button> <button class="filter-button" data-filter="mgr">MGR </button> <input type="text" id="saml-input" placeholder="Suche nach einer Rolle.." title="Type in a name">   </header>');
 
+var image = document.createElement("img");
+image.src = chrome.runtime.getURL("content_images/rtl.png");
+image.classList.add('mgr-image')
+$('#header').before(image)
+//document.getElementById("header").appendChild(image);
 
+//var img_src = "https://www.bertelsmann.de/media/verantwortung/bilder/bilderpool-projekte/150507-mediengruppe-rtl-deutschland_article_landscape_lt_768_retina.jpg"
+//chrome.runtime.getURL("content_images/rtl.png")
+//$('#header').before(' <img class="mgr-image" src="chrome.runtime.getURL(&quot;content_images/rtl.png&quot;)" >   ')
+//<img class="mgr-image" src='chrome.runtime.getURL("content_images/rtl.png")'>
 
 
 // Functions
